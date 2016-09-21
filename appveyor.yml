@@ -42,4 +42,4 @@ build_script:
   - cd %APPVEYOR_BUILD_FOLDER%
   - git fetch
   - git reset --hard
-  - '%CYG_BASH% -lc "cd $APPVEYOR_BUILD_FOLDER;./ci-script.sh"'
+  - '%CYG_BASH% -lc "cd $APPVEYOR_BUILD_FOLDER;exec 0</dev/null;./ci-script.sh"'
