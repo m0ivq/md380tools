@@ -664,7 +664,12 @@ def main():
 		   dfu=init_dfu();
                    spiflashwrite(dfu,sys.argv[2],adr);
                 else:
-                   print "address to low"
+                   print "WARNING - this will overwrite codeplug data";
+                   yesno = raw_input("Do you wish to continue? (y/n)");
+                   if yesno == "y":
+                      dfu=init_dfu();
+                      spiflashwrite(dfu,sys.argv[2],adr);
+
             if sys.argv[1] == 'dump':
                 print "Dumping memory from %s." % sys.argv[3];
                 dfu=init_dfu();
